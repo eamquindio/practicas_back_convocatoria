@@ -5,7 +5,7 @@ const app = require('../../index');
 const PersonaRepository = require('../../app/repositories/PersonaRepository');
 const Helper = require('../Helper');
 
-const API = '/api/users-ms/persons';
+const API = '/api/convocatiorias-ms/persons';
 chai.use(chaiHttp);
 
 describe('Person CRUD flows', () => {
@@ -32,7 +32,7 @@ describe('Person CRUD flows', () => {
       .post(API)
       .send({ id: 1, name: 'camilo' })
       .catch((error) => {
-        assert.equal(error.status, 500);
+        assert.equal(error.status, 404);
       });
   });
 

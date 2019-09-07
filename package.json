@@ -28,13 +28,13 @@
     "moment-timezone": "^0.5.23",
     "pg": "^7.4.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.4",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
     "apidocjs-markdown": "^0.2.2",
-    "chai": "^4.1.2",
-    "chai-http": "^3.0.0",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",

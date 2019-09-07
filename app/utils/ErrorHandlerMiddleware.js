@@ -1,8 +1,9 @@
 const ErrorHandlerMiddleware = module.exports;
 
-ErrorHandlerMiddleware.MainHandler = (err, req, res) => {
+ErrorHandlerMiddleware.MainHandler = (err, req, res, next) => {
   const logName = 'ErrorHandlerMiddleware.MainHandler';
-  const logger = req.log || console.log;
+  const logger = console.log;
+  console.log(next);
 
   logger(logName, `Error with message ${err.message} and stack: ${err.stack}`);
 
