@@ -1,7 +1,6 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
 
-console.log(UserController);
 const router = express.Router();
 
 // Persons Routes
