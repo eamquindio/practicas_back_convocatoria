@@ -1,0 +1,46 @@
+{
+  "name": "users-ms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "APP_ENV=local npx nyc mocha tests/**/**/**/*Test.js --timeout=3300",
+    "dev": "APP_ENV=local nodemon index.js",
+    "docs": "node node_modules/.bin/apidoc -f \"^(?!.*node_modules.*$).*\\.js$\" -o apidoc && node_modules/.bin/apidocjs-markdown -p apidoc -o APIDOC.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org:feunchos/users-ms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "ajv": "^6.1.1",
+    "async": "^2.6.0",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "knex": "^0.14.6",
+    "mock-knex": "^0.4.0",
+    "moment-timezone": "^0.5.23",
+    "pg": "^7.4.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.6",
+    "apidocjs-markdown": "^0.2.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.18.7",
+    "nyc": "^11.8.0"
+  },
+  "homepage": "https://bitbucket.org/feunchos/users-ms/#readme"
+}
