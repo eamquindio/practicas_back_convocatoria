@@ -92,6 +92,7 @@ it('edit announcement nof found test', async () => chai
   .request(app)
   .put(`${API}/1`)
   .send({
+    id: '1',
     fecha_inicio: '2019-05-13',
     fecha_final: '2019-04-13',
     id_empresa: 1,
