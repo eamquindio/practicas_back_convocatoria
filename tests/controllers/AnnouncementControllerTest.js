@@ -81,10 +81,10 @@ it('edit Announcement test', async () => {
   return chai
     .request(app)
     .put(`${API}/1`)
-    .send({ tipo_practica: 'objetivos' })
+    .send({ tipo_practica: 'objetivo' })
     .then(async () => {
       const convocatoriaToAssert = await ConvocatoriaRepository.find(1);
-      assert.equal(convocatoriaToAssert.tipo_practica, 'objetivos');
+      assert.equal(convocatoriaToAssert.tipo_practica, 'objetivo');
     });
 });
 
