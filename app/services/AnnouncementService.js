@@ -1,13 +1,19 @@
-const AnnouncemenService = module.exports;
+const AnnouncementService = module.exports;
 const AnnouncementRepository = require('../repositories/AnnouncementRepository');
 const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
-AnnouncemenService.create = async (Announcemen) => {
+AnnouncementService.create = async (Announcement) => {
   console.log('creating Announcement');
 
-  const AnnouncemenToValidate = await AnnouncementRepository.find(Announcemen.id);
+  const AnnouncemenToValidate = await AnnouncementRepository.find(Announcement.id);
   console.log(AnnouncemenToValidate);
   if (AnnouncemenToValidate) throw ErrorHandler.BaseError('Announcement already exists', 409);
 
-  return AnnouncementRepository.create(Announcemen);
+  return AnnouncementRepository.create(Announcement);
+};
+
+AnnouncementService.edit = (id, Announcement) => {
+  console.log('edit announcement');
+
+  return AnnouncementRepository.edit(id, Announcement);
 };

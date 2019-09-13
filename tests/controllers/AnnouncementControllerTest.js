@@ -71,3 +71,38 @@ describe('Announcement CRUD flows', () => {
       });
   });
 });
+
+it('edit Announcement test', async () => {
+  await ConvocatoriaRepository.create({
+    id: 1,
+    tipo_practica: 'horas',
+  });
+
+  return chai
+    .request(app)
+    .put(`${API}/1`)
+    .send({ tipo_practica: 'objetivos' })
+    .then(async () => {
+      const convocatoriaToAssert = await ConvocatoriaRepository.find(1);
+      assert.equal(convocatoriaToAssert.tipo_practica, 'objetivos');
+    });
+});
+
+it('edit announcement nof found test', async () => chai
+  .request(app)
+  .put(`${API}/1`)
+  .send({
+    fecha_inicio: '2019-05-13',
+    fecha_final: '2019-04-13',
+    id_empresa: 1,
+    tipo_practica: 'objetivos',
+    id_facultad: 2,
+    id_programa: 2,
+    id_ciclo: 1,
+    estado: 'inactivo',
+    numero_estudiantes: 1,
+    id_coordinador: 2,
+  })
+  .catch((error) => {
+    assert.equal(error.status, 404);
+  }));
