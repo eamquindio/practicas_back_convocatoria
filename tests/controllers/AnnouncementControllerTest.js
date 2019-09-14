@@ -162,7 +162,7 @@ describe('Announcement CRUD flows', () => {
       numero_estudiantes: 3,
       id_coordinador: 1,
     });
-  
+
     return chai
       .request(app)
       .put(`${API}/1`)
@@ -172,7 +172,7 @@ describe('Announcement CRUD flows', () => {
         assert.equal(convocatoriaToAssert.tipo_practica, 'objetivo');
       });
   });
-  
+
   it('edit announcement nof found test', async () => chai
     .request(app)
     .put(`${API}/1`)
@@ -192,7 +192,4 @@ describe('Announcement CRUD flows', () => {
     .catch((error) => {
       assert.equal(error.status, 404);
     }));
-  
-
 });
-
