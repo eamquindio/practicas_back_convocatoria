@@ -102,7 +102,7 @@ describe('Announcement CRUD flows', () => {
       .get(`${API}/list?id_programa=1&tipo_practica=horas&id_ciclo=1`)
       .then(async (response) => {
         const { body } = response;
-        assert.deepEqual(body[0], {id: 1,
+        assert.deepEqual(body[0], { id: 1,
           fecha_inicio: "2019-08-24",
           fecha_final: "2019-08-24",
           id_empresa: 1,
@@ -118,7 +118,7 @@ describe('Announcement CRUD flows', () => {
 
   it.only('find Announcement by filter empty test', async () => chai
     .request(app)
-    .get(`${API}/list?id_programa=1`)
+    .get(`${API}/list?id_programa=1&tipo_practica= &id_ciclo=1`)
     .then(async (response) => {
       assert.equal(response.status, 204);
     }));
