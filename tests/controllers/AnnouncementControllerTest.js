@@ -113,7 +113,7 @@ describe('Announcement CRUD flows', () => {
           id_ciclo: 1,
           estado: 'activo',
           numero_estudiantes: 3,
-          id_coordinador: 1 
+          id_coordinador: 1,
         });
       });
   });
