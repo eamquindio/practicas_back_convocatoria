@@ -70,7 +70,7 @@ describe('Announcement CRUD flows', () => {
         assert.equal(error.status, 404);
       });
   });
-  it.only('find Announcement by filter test', async () => {
+  it('find Announcement by filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 1,
       fecha_inicio: '2019-08-24 05:00:00',
@@ -118,7 +118,7 @@ describe('Announcement CRUD flows', () => {
       });
   });
 
-  it.only('find Announcement by filter empty test', async () => chai
+  it('find Announcement by filter empty test', async () => chai
     .request(app)
     .get(`${API}/list?idPrograma=0&tipoPractica= &idCiclo=0`)
     .then(async (response) => {
