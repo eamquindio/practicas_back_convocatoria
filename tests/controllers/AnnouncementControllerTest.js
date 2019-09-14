@@ -102,7 +102,6 @@ describe('Announcement CRUD flows', () => {
       .get(`${API}/list?idPrograma=1&tipoPractica=horas&idCiclo=1`)
       .then(async (response) => {
         const { body } = response;
-        console.log(body)
         assert.deepEqual(body[0], {
           id: 1,
           fecha_inicio: '2019-08-24T00:00:00.000Z',
