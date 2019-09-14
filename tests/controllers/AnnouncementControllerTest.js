@@ -102,7 +102,8 @@ describe('Announcement CRUD flows', () => {
       .get(`${API}/list?idPrograma=1&tipoPractica=horas&idCiclo=1`)
       .then(async (response) => {
         const { body } = response;
-        assert.deepEqual(body[0], { id: 1,
+        assert.deepEqual(body[0], {
+          id: 1,
           fecha_inicio: '2019-08-24',
           fecha_final: '2019-08-24',
           id_empresa: 1,
@@ -112,7 +113,8 @@ describe('Announcement CRUD flows', () => {
           id_ciclo: 1,
           estado: 'activo',
           numero_estudiantes: 3,
-          id_coordinador: 1 });
+          id_coordinador: 1 
+        });
       });
   });
 
