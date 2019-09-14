@@ -23,8 +23,13 @@ AnnouncementController.findforfilter = async (req, res, next) => {
     if (AnnouncementS.length === 0) return res.status(204).send(AnnouncementS);
 
     return res.send(AnnouncementS);
+  } catch (error) {
+    console.log(error);
 
-
+    return next(error);
+  }
+};
+  
 AnnouncementController.edit = async (req, res, next) => {
   try {
     const { params: { id }, body } = req;

@@ -9,9 +9,7 @@ AnnouncementRepository.findforfilter = (idPrograma, tipoPractica, idCiclo) =>
   DB('convocatorias').select('*').where({ id_programa: idPrograma }).orWhere({ tipo_practica: tipoPractica })
     .orWhere({ id_ciclo: idCiclo });
 
-
 AnnouncementRepository.editStatus = (id, estado) => DB('convocatorias').update({ estado }).where({ id }).returning('*');
 
 AnnouncementRepository.edit =
 (id, Announcement) => DB('convocatorias').update(Announcement).where({ id }).returning('*');
-
