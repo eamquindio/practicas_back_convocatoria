@@ -1,6 +1,7 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
 const AnnouncementController = require('./controllers/AnnouncementController');
+const PersonAnnouncementController = require('./controllers/PersonAnnouncementController');
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.get('/persons/all', PersonController.listAll);
 
 // Announcement Routes
 router.post('/convocatorias', AnnouncementController.save);
+router.post('/convocatoria/:id_conv(\\d+)/inscripcion', PersonAnnouncementController.save);
 
 module.exports = router;
