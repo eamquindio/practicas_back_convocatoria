@@ -13,3 +13,15 @@ AnnouncemenService.create = async (Announcemen) => {
 
   return AnnouncementRepository.create(Announcemen);
 };
+
+AnnouncemenService.findforfilter = (idPrograma, tipoPractica, idCiclo) => {
+  console.log('find for filter Announcement');
+
+  return AnnouncementRepository.findforfilter(idPrograma, tipoPractica, idCiclo);
+};
+
+AnnouncemenService.editStatus = (id) => {
+  console.log('edit status convocatoria');
+
+  return AnnouncementRepository.editStatus(id, 'inactivo');
+};
