@@ -14,5 +14,6 @@ router.get('/persons/all', PersonController.listAll);
 
 // Announcement Routes
 router.post('/convocatorias', AnnouncementController.save);
+router.get('/Convocatorias/list', AnnouncementController.findforfilter);
 
 module.exports = router;

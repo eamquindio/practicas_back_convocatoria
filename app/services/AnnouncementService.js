@@ -11,3 +11,9 @@ AnnouncemenService.create = async (Announcemen) => {
 
   return AnnouncementRepository.create(Announcemen);
 };
+
+AnnouncemenService.findforfilter = (id_programa ,tipo_practica , id_ciclo) => {
+  console.log('find for filter Announcement');
+  
+  return AnnouncementRepository.findforfilter(id_programa ,tipo_practica , id_ciclo);
+};
