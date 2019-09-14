@@ -126,7 +126,6 @@ describe('Announcement CRUD flows', () => {
       assert.equal(response.status, 204);
     }));
 
-  
   it('editStatus Announcement not found test', async () => chai
     .request(app)
     .put(`${API}/cerrar/1`)
