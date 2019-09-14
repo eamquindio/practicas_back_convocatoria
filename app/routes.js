@@ -15,6 +15,6 @@ router.get('/persons/all', PersonController.listAll);
 
 // Announcement Routes
 router.post('/convocatorias', AnnouncementController.save);
-router.post('/convocatoria/:id_conv(\\d+)/inscripcion', PersonAnnouncementController.save);
+router.post('/convocatorias/:id_conv(\\d+)/inscripcion', PersonAnnouncementController.save);
 
 module.exports = router;

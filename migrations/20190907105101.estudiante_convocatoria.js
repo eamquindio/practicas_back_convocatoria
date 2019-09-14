@@ -3,6 +3,7 @@ exports.up = knex =>
     table.increments('id');
     table.integer('estudiante_id');
     table.string('Convocatoria_Codigo');
+ 
   
   });
 

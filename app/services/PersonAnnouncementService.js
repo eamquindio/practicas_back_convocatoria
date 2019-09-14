@@ -1,13 +1,15 @@
 const PersonService = module.exports;
-const PersonRepository = require('../repositories/PersonAnnouncementRepository');
+const PersonAnnouncementRepository = require('../repositories/PersonAnnouncementRepository');
+const AnnouncementRepository = require('../repositories/AnnouncementRepository');
+
 const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
-PersonService.create = async (person) => {
-  console.log('creating person');
+PersonService.create = async (personAnnouncement) => {
+  console.log('creating personAnnouncement');
 
-  const personToValidate = await PersonRepository.find(person.id);
+  const announcementToValidate = await AnnouncementRepository.find(personAnnouncement.idAnnaouncement);
+
+  if(!announcementToValidate ) throw ErrorHandler.BaseError('Announcement does not exist', 409); 
   
-  if (personToValidate) throw ErrorHandler.BaseError('person already exists', 409);
-
-  return PersonRepository.create(person);
+  return PersonAnnouncementRepository.create(personAnnouncement);
 };
