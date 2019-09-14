@@ -5,7 +5,7 @@ const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
 const Helper = require('../Helper');
 
-const API = '/api/convocatiorias-ms/convocatorias';
+const API = '/api/convocatorias-ms/convocatorias';
 chai.use(chaiHttp);
 
 describe('Announcement CRUD flows', () => {
@@ -70,6 +70,7 @@ describe('Announcement CRUD flows', () => {
         assert.equal(error.status, 404);
       });
   });
+
   it('find Announcement by filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 1,
@@ -124,4 +125,26 @@ describe('Announcement CRUD flows', () => {
     .then(async (response) => {
       assert.equal(response.status, 204);
     }));
+
+  
+  it('editStatus Announcement not found test', async () => chai
+    .request(app)
+    .put(`${API}/cerrar/1`)
+    .send({ estado: 'inactivo' })
+    .catch((error) => {
+      assert.equal(error.status, 404);
+    }));
+
+  it('editStatus Announcement test', async () => {
+    await ConvocatoriaRepository.create({ id: 1, estado: 'activo' });
+
+    return chai
+      .request(app)
+      .put(`${API}/cerrar/1`)
+      .send({ estado: 'inactivo' })
+      .then(async () => {
+        const convocatoriaToAssert = await ConvocatoriaRepository.find(1);
+        assert.equal(convocatoriaToAssert.estado, 'inactivo');
+      });
+  });
 });
