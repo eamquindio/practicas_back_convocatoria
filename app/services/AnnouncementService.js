@@ -24,7 +24,7 @@ AnnouncementService.findforfilter = (idPrograma, tipoPractica, idCiclo) => {
   return AnnouncementRepository.findforfilter(idPrograma, tipoPractica, idCiclo);
 };
 
-AnnouncemenService.editStatus = (id) => {
+AnnouncementService.editStatus = (id) => {
   console.log('edit status convocatoria');
 
   return AnnouncementRepository.editStatus(id, 'inactivo');

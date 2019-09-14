@@ -126,6 +126,7 @@ describe('Announcement CRUD flows', () => {
       assert.equal(response.status, 204);
     }));
 
+
   it('editStatus Announcement not found test', async () => chai
     .request(app)
     .put(`${API}/cerrar/1`)
@@ -146,7 +147,6 @@ describe('Announcement CRUD flows', () => {
         assert.equal(convocatoriaToAssert.estado, 'inactivo');
       });
   });
-});
 
   it('edit Announcement test', async () => {
     await ConvocatoriaRepository.create({

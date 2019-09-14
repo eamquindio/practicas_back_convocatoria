@@ -29,7 +29,7 @@ AnnouncementController.findforfilter = async (req, res, next) => {
     return next(error);
   }
 };
-  
+
 AnnouncementController.edit = async (req, res, next) => {
   try {
     const { params: { id }, body } = req;
@@ -39,7 +39,6 @@ AnnouncementController.edit = async (req, res, next) => {
     if (!announcement) return next(new ErrorHandler.BaseError('announcement not exists', 404));
 
     return res.send(announcement);
-
   } catch (error) {
     console.log(error);
 
