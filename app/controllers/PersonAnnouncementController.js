@@ -1,4 +1,5 @@
 const PersonAnnouncementController= module.exports;
+
 const PersonAnnouncementService = require('../services/PersonAnnouncementService');
 
 PersonAnnouncementController.save = async (req, res, next) => {
@@ -8,11 +9,12 @@ PersonAnnouncementController.save = async (req, res, next) => {
   try {
     console.log(PersonAnnouncement);
     await PersonAnnouncementService.create(PersonAnnouncement);
+
     return res.send("succes");
-  } catch (error) {
+  }catch (error) {
 
     console.log({ error });
-    return next(error);
 
+    return next(error);
   }
 }

@@ -2,7 +2,7 @@ const assert = require('assert');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
-const ConvocatoriaRepository = require('../../app/repositories/PersonAnnouncementRepository');
+const ConvocatoriaRepository = require('../../app/repositories/PersonAnnRepository');
 const Helper = require('../Helper');
 
 const API = '/api/convocatiorias-ms/convocatorias';
@@ -33,7 +33,6 @@ describe('PersonAnnouncement CRUD flows', () => {
       estudiante_id: 1,
       Convocatoria_Codigo: 1,
     });
-      
     return chai
       .request(app)
       .post(API)
