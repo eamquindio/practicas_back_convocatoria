@@ -19,7 +19,7 @@ describe('PersonAnnouncement CRUD flows', () => {
     .post(`${API}/1/inscripcion`)
     .send({
       id: 1,
-      estudiante_id:1,
+      estudiante_id: 1,
       Convocatoria_Codigo: 1,
     })
     .then(async () => {
@@ -29,17 +29,17 @@ describe('PersonAnnouncement CRUD flows', () => {
 
   it('create PersonAnnouncement already exists test', async () => {
     await ConvocatoriaRepository.create({
-        id: 1,
-        estudiante_id:1,
-        Convocatoria_Codigo: 1,
+      id: 1,
+      estudiante_id: 1,
+      Convocatoria_Codigo: 1,
     });
-
+      
     return chai
       .request(app)
       .post(API)
       .send({
         id: 1,
-        estudiante_id:1,
+        estudiante_id: 1,
         Convocatoria_Codigo: 1,
       })
       .catch((error) => {

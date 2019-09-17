@@ -3,8 +3,6 @@ exports.up = knex =>
     table.increments('id');
     table.integer('estudiante_id');
     table.string('Convocatoria_Codigo');
- 
-  
   });
 
 exports.down = knex => knex.schema.dropTable('estudiante_convocatoria');
