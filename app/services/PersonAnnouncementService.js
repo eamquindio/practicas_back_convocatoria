@@ -9,6 +9,6 @@ PersonService.create = async (personAnnouncement) => {
 
   const announcementToValidate = await AnnouncementRepository.find(personAnnouncement.idAnnaouncement);
   if (!announcementToValidate ) throw ErrorHandler.BaseError('Announcement does not exist', 409); 
-  
   return PersonAnnRepository.create(personAnnouncement);
+
 };
