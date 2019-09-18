@@ -15,6 +15,7 @@ AnnouncementController.save = async (req, res, next) => {
   }
 };
 
+
 AnnouncementController.findforfilter = async (req, res, next) => {
   try {
     const { query: { idPrograma, tipoPractica, idCiclo } } = req;
@@ -22,6 +23,22 @@ AnnouncementController.findforfilter = async (req, res, next) => {
     if (AnnouncementS.length === 0) return res.status(204).send(AnnouncementS);
 
     return res.send(AnnouncementS);
+  } catch (error) {
+    console.log(error);
+
+    return next(error);
+  }
+};
+
+AnnouncementController.edit = async (req, res, next) => {
+  try {
+    const { params: { id }, body } = req;
+
+    const announcement = await AnnouncementService.edit(id, body);
+
+    if (!announcement) return next(new ErrorHandler.BaseError('announcement not exists', 404));
+
+    return res.send(announcement);
   } catch (error) {
     console.log(error);
 
