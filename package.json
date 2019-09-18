@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx nyc mocha tests/**/**/**/*Test.js --timeout=3300",
-    "dev": "APP_ENV=local nodemon index.js",
+    "dev": "local nodemon index.js",
     "docs": "node node_modules/.bin/apidoc -f \"^(?!.*node_modules.*$).*\\.js$\" -o apidoc && node_modules/.bin/apidocjs-markdown -p apidoc -o APIDOC.md"
   },
   "repository": {

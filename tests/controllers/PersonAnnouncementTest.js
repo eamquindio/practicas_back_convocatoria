@@ -33,6 +33,7 @@ describe('PersonAnnouncement CRUD flows', () => {
       estudiante_id: 1,
       Convocatoria_Codigo: 1,
     });
+
     return chai
       .request(app)
       .post(API)

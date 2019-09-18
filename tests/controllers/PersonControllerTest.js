@@ -34,7 +34,6 @@ describe('Person CRUD flows', () => {
       .catch((error) => {
         assert.equal(error.status, 404);
       });
-      
   });
 
   it('edit person nof found test', async () => chai
