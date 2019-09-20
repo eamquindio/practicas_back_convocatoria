@@ -247,5 +247,4 @@ describe('Announcement CRUD flows', () => {
         });
       });
   });
-});
-
+})
