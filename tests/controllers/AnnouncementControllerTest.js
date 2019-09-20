@@ -3,6 +3,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
+
 const Helper = require('../Helper');
 
 const API = '/api/convocatorias-ms/convocatorias';
@@ -71,11 +72,11 @@ describe('Announcement CRUD flows', () => {
       });
   });
 
-  it('find Announcement by filter test', async () => {
+  it.only('find Announcement by filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 1,
-      fecha_inicio: '2019-08-24 05:00:00',
-      fecha_final: '2019-08-24 05:00:00',
+      fecha_inicio: '2019-08-24T00:00:00.000Z',
+      fecha_final: '2019-08-24T00:00:00.000Z',
       id_empresa: 1,
       tipo_practica: 'horas',
       id_facultad: 1,
@@ -86,8 +87,8 @@ describe('Announcement CRUD flows', () => {
       id_coordinador: 1,
     }, {
       id: 2,
-      fecha_inicio: '2019-08-24 05:00:00',
-      fecha_final: '2019-08-24 05:00:00',
+      fecha_inicio: '2019-08-24T00:00:00.000Z',
+      fecha_final: '2019-08-24T00:00:00.000Z',
       id_empresa: 2,
       tipo_practica: 'objetivo',
       id_facultad: 2,
@@ -247,5 +248,11 @@ describe('Announcement CRUD flows', () => {
         });
       });
   });
-});
 
+  it('find student by annoncement not found test', async () => chai
+    .request(app)
+    .get(`${API}/1`)
+    .catch((error) => {
+      assert.equal(error.status, 404);
+    }));
+});

@@ -1,6 +1,8 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
 const AnnouncementController = require('./controllers/AnnouncementController');
+const personAnnouncementController = require('./controllers/personAnnouncementController');
+
 
 const router = express.Router();
 
@@ -19,6 +21,10 @@ router.get('/Convocatorias/list', AnnouncementController.findforfilter);
 router.put('/convocatorias/cerrar/:id(\\d+)', AnnouncementController.editStatus);
 
 router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
+<<<<<<< 699be1c6454c48fa239f79976e59ba7ccde07c0d
 router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
+=======
+router.get('/estudianteConvocatoria/id(\\d+)', personAnnouncementController.listAnnouncementStudent);
+>>>>>>> listar estudiante de una convocatoria #16
 
 module.exports = router;
