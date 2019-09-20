@@ -61,3 +61,17 @@ AnnouncementController.editStatus = async (req, res, next) => {
     return next(error);
   }
 };
+
+AnnouncementController.closedCalls = async (req, res, next) => {
+  try {
+    const { query: { idPrograma, Estado } } = req;
+    const AnnouncementS = await AnnouncementService.closedCalls(idPrograma, Estado);
+    if (AnnouncementS.length === 0) return res.status(204).send(AnnouncementS);
+
+    return res.send(AnnouncementS);
+  } catch (error) {
+    console.log(error);
+
+    return next(error);
+  }
+};

@@ -13,3 +13,6 @@ AnnouncementRepository.editStatus = (id, estado) => DB('convocatorias').update({
 
 AnnouncementRepository.edit =
 (id, Announcement) => DB('convocatorias').update(Announcement).where({ id }).returning('*');
+
+AnnouncementRepository.closedCalls =
+(idPrograma, Estado) => DB('convocatorias').select('*').where({ id_programa: idPrograma }).andWhere({ estado: Estado });

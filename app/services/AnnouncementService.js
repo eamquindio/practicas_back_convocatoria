@@ -29,3 +29,9 @@ AnnouncementService.editStatus = (id) => {
 
   return AnnouncementRepository.editStatus(id, 'inactivo');
 };
+
+AnnouncementService.closedCalls = (idPrograma, Estado) => {
+  console.log('find for filter closed calls');
+
+  return AnnouncementRepository.closedCalls(idPrograma, Estado);
+};
