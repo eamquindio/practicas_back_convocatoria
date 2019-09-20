@@ -192,5 +192,12 @@ describe('Announcement CRUD flows', () => {
     .catch((error) => {
       assert.equal(error.status, 404);
     }));
+
+  it('find Announcement closed calls filter empty test', async () => chai
+    .request(app)
+    .get(`${API}/closedcalls?idPrograma=1&Estado=cerrada`)
+    .then(async (response) => {
+      assert.equal(response.status, 204);
+    }));
 });
 
