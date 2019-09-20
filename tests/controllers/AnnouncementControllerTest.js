@@ -243,7 +243,7 @@ describe('Announcement CRUD flows', () => {
           id_ciclo: 2,
           estado: 'cerrada',
           numero_estudiantes: 4,
-          id_coordinador: ,
+          id_coordinador: 2,
         });
       });
   });
