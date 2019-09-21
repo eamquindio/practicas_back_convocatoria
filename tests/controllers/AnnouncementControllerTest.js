@@ -197,7 +197,7 @@ describe('Announcement CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 
-  it.only('list studentttttttttttt by announcement', async () => {
+  it('list studentttttttttttt by announcement', async () => {
     await personAnnouncementRepository.create([{ id: 1, id_estudiante: 1, id_convocatoria: 1 }]);
 
     return chai
@@ -224,12 +224,6 @@ describe('Announcement CRUD flows', () => {
       assert.equal(response.status, 204);
     }));
 
-  it('find Announcement closed calls filter empty test', async () => chai
-    .request(app)
-    .get(`${API}/closedcalls?idPrograma=1&Estado=cerrada`)
-    .then(async (response) => {
-      assert.equal(response.status, 204);
-    }));
 
   it('find announcement closed calls filter test', async () => {
     await ConvocatoriaRepository.create([{
