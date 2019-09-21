@@ -197,7 +197,6 @@ describe('Announcement CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 
-<<<<<<< 11dc677bf26b808f0a2c8ef4e15eb486c317998a
   it('find Announcement closed calls filter empty test', async () => chai
     .request(app)
     .get(`${API}/closedcalls?idPrograma=1&Estado=cerrada`)
@@ -250,7 +249,7 @@ describe('Announcement CRUD flows', () => {
           numero_estudiantes: 4,
           id_coordinador: 2,
         });
-=======
+
   it.only('list studentttttttttttt by announcement', async () => {
     await personAnnouncementRepository.create([{ id: 1, id_estudiante: 1, id_convocatoria: 1 }]);
 
@@ -260,7 +259,7 @@ describe('Announcement CRUD flows', () => {
       .then(async (response) => {
         const { body } = response;
         assert.deepEqual(body, { id: 1, id_estudiante: 1, id_convocatoria: 1 });
->>>>>>> listar estudiante de una convocatoria #16
+
       });
   });
 
