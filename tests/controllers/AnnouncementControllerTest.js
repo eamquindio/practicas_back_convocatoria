@@ -231,7 +231,7 @@ describe('Announcement CRUD flows', () => {
       assert.equal(response.status, 204);
     }));
 
-  it('find Announcement closed calls filter test', async () => {
+  it('find announcement closed calls filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 5,
       fecha_inicio: '2019-08-24T00:00:00.000Z0',
@@ -278,5 +278,4 @@ describe('Announcement CRUD flows', () => {
         });
       });
   });
-
 });
