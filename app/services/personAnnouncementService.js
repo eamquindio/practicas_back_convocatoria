@@ -12,8 +12,20 @@ personAnnouncementService.create = async (Announcement) => {
   return personAnnouncementRepository.create(Announcement);
 };
 
+personAnnouncementService.find = (announcement) => {
+  console.log('find person');
+
+  return personAnnouncementRepository.find(announcement);
+};
+
+personAnnouncementService.edit = (id, person) => {
+  console.log('edit person');
+
+  return personAnnouncementRepository.edit(id, person);
+};
+
 personAnnouncementService.listAnnouncementStudent = (id) => {
-  console.log('find studen by announcement');
+  console.log('list student by announcement');
 
   return personAnnouncementRepository.listAnnouncementStudent(id);
 };

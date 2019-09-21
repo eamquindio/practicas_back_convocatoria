@@ -21,10 +21,11 @@ router.get('/Convocatorias/list', AnnouncementController.findforfilter);
 router.put('/convocatorias/cerrar/:id(\\d+)', AnnouncementController.editStatus);
 
 router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
-<<<<<<< 699be1c6454c48fa239f79976e59ba7ccde07c0d
+
 router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
-=======
+
 router.get('/estudianteConvocatoria/id(\\d+)', personAnnouncementController.listAnnouncementStudent);
->>>>>>> listar estudiante de una convocatoria #16
+
+router.get('/estudianteConvocatoria/:id(\\d+)', personAnnouncementController.listAnnouncementStudent);
 
 module.exports = router;

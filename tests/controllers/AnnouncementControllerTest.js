@@ -3,10 +3,13 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
+const personAnnouncementRepository = require('../../app/repositories/personAnnouncementRepository');
+
 
 const Helper = require('../Helper');
 
-const API = '/api/convocatorias-ms/convocatorias';
+const API = '/api/convocatorias-ms/convocatoria';
+
 chai.use(chaiHttp);
 
 describe('Announcement CRUD flows', () => {
@@ -72,7 +75,7 @@ describe('Announcement CRUD flows', () => {
       });
   });
 
-  it.only('find Announcement by filter test', async () => {
+  it('find Announcement by filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 1,
       fecha_inicio: '2019-08-24T00:00:00.000Z',
@@ -194,6 +197,7 @@ describe('Announcement CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 
+<<<<<<< 11dc677bf26b808f0a2c8ef4e15eb486c317998a
   it('find Announcement closed calls filter empty test', async () => chai
     .request(app)
     .get(`${API}/closedcalls?idPrograma=1&Estado=cerrada`)
@@ -246,6 +250,17 @@ describe('Announcement CRUD flows', () => {
           numero_estudiantes: 4,
           id_coordinador: 2,
         });
+=======
+  it.only('list studentttttttttttt by announcement', async () => {
+    await personAnnouncementRepository.create([{ id: 1, id_estudiante: 1, id_convocatoria: 1 }]);
+
+    return chai
+      .request(app)
+      .get('/api/convocatorias-ms/estudianteConvocatoria/1')
+      .then(async (response) => {
+        const { body } = response;
+        assert.deepEqual(body, { id: 1, id_estudiante: 1, id_convocatoria: 1 });
+>>>>>>> listar estudiante de una convocatoria #16
       });
   });
 
