@@ -211,7 +211,6 @@ describe('Announcement CRUD flows', () => {
       .then(async (response) => {
         const { body } = response;
         assert.deepEqual(body, { id: 1, id_estudiante: 1, id_convocatoria: 1 });
-
       });	    
   });
 
