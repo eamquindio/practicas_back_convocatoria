@@ -1,6 +1,8 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
 const AnnouncementController = require('./controllers/AnnouncementController');
+const personAnnouncementController = require('./controllers/personAnnouncementController');
+
 
 const router = express.Router();
 
@@ -19,6 +21,10 @@ router.get('/Convocatorias/list', AnnouncementController.findforfilter);
 router.put('/convocatorias/cerrar/:id(\\d+)', AnnouncementController.editStatus);
 
 router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
+
 router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
+
+router.get('/estudianteConvocatoria/:id(\\d+)', personAnnouncementController.listAnnouncementStudent);
+router.get('/estudianteConvocatoria/:id(\\d+)', PersonController.find);
 
 module.exports = router;

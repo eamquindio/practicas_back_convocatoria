@@ -3,6 +3,8 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
+const personAnnouncementRepository = require('../../app/repositories/personAnnouncementRepository');
+
 const Helper = require('../Helper');
 
 const API = '/api/convocatorias-ms/convocatorias';
@@ -193,6 +195,26 @@ describe('Announcement CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 
+  it('find student by annoncement not found test', async () => chai
+    .request(app)
+    .get(`${API}/1`)
+    .catch((error) => {
+      assert.equal(error.status, 404);
+    }));
+
+  it('list studen by announcement', async () => {
+    await personAnnouncementRepository.create([{ id: 1, id_estudiante: 1, id_convocatoria: 1 }]);
+
+    return chai
+      .request(app)
+      .get('/api/convocatorias-ms/estudianteConvocatoria/1')
+      .then(async (response) => {
+        const { body } = response;
+        assert.deepEqual(body, { id: 1, id_estudiante: 1, id_convocatoria: 1 });
+
+      });	    
+  });
+
   it('find Announcement closed calls filter empty test', async () => chai
     .request(app)
     .get(`${API}/closedcalls?idPrograma=1&Estado=cerrada`)
@@ -248,4 +270,3 @@ describe('Announcement CRUD flows', () => {
       });
   });
 });
-
