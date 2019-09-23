@@ -18,7 +18,6 @@ describe('PersonAnnouncement CRUD flows', () => {
   });
 
   it.only('create PersonAnnouncement test', async () => {
-
     await ConvocatoriaRepository.create({
       id: 1,
       fecha_inicio: '2019-08-24',
@@ -44,8 +43,8 @@ describe('PersonAnnouncement CRUD flows', () => {
       .then(async () => {
         const [convocatoriaToAssert] = await PersonAnnRepository.findByStudent(1)
         assert.equal(convocatoriaToAssert.estudiante_id, 1);
-      })
- ;});
+      });
+  });
 
   it('create PersonAnnouncement not exists test', async () => {
     await ConvocatoriaRepository.create({

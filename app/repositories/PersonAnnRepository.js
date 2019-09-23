@@ -6,5 +6,5 @@ PersonAnnRepository.create = PersonAnnouncement =>
 
 PersonAnnRepository.find = id => DB('estudiante_convocatoria').select('*').where({ id }).first();
 
-PersonAnnRepository.findByStudent = 
+PersonAnnRepository.findByStudent =
 idEstudiante => DB('estudiante_convocatoria').select('*').where({ estudiante_id: idEstudiante }).first();
