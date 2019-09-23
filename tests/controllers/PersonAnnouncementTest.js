@@ -41,7 +41,7 @@ describe('PersonAnnouncement CRUD flows', () => {
         Convocatoria_Codigo: 1,
       })
       .then(async () => {
-        const [convocatoriaToAssert] = await PersonAnnRepository.findByStudent(1)
+        const [convocatoriaToAssert] = await PersonAnnRepository.findByStudent(1);
         assert.equal(convocatoriaToAssert.estudiante_id, 1);
       });
   });
