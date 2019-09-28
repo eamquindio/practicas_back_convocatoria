@@ -8,4 +8,5 @@ Helpers.migrate = () => db.migrate.latest();
 Helpers.clear = async () => {
   await db('persons').del();
   await db('convocatorias').del();
+  await db('estudianteConvocatoria').del();
 };
