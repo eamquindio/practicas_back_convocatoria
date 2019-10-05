@@ -4,6 +4,7 @@ const chaiHttp = require('chai-http');
 const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
 const personAnnouncementRepository = require('../../app/repositories/personAnnouncementRepository');
+const ClosingReasonRepository = require('../../app/repositories/ClosingReasonRepository');
 
 const Helper = require('../Helper');
 
@@ -268,4 +269,29 @@ describe('Announcement CRUD flows', () => {
         });
       });
   });
+
+  it('find all closing reason', async () => {
+    await ClosingReasonRepository.createClosingReason([{
+      id: 1,
+      description: 'cumplió fecha limite',
+    }, {
+      id: 2,
+      description: 'cupo límite de estudiantes',
+    }]);
+
+    return chai
+      .request(app)
+      .get('/api/convocatorias-ms/closingReason/all')
+      .then(async (response) => {
+        const { body } = response;
+        assert.deepEqual(body.length, 2);
+      });
+  });
+
+  it('find all closing reason empty test', async () => chai
+    .request(app)
+    .get('/api/convocatorias-ms/closingReason/all')
+    .then(async (response) => {
+      assert.equal(response.status, 204);
+    }));
 });
