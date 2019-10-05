@@ -5,7 +5,7 @@ const app = require('../../index');
 const PersonaRepository = require('../../app/repositories/PersonaRepository');
 const Helper = require('../Helper');
 
-const API = '/api/convocatiorias-ms/persons';
+const API = '/api/convocatorias-ms/persons';
 chai.use(chaiHttp);
 
 describe('Person CRUD flows', () => {
