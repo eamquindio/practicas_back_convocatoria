@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "1742d13f-7521-4c4f-89df-35820c78dae2",
+		"name": "Pruebas de convocatoria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Guardar convocatoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"id\": 1,\r\n      \"fecha_inicio\": \"2019-08-24\",\r\n      \"fecha_final\" : \"2019-08-24\",\r\n      \"id_empresa\": 1,\r\n      \"tipo_practica\": \"horas\",\r\n      \"id_facultad\": 1,\r\n      \"id_programa\": 1,\r\n      \"id_ciclo\": 1,\r\n      \"estado\": \"activo\",\r\n      \"numero_estudiantes\": 3,\r\n      \"id_coordinador\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/convocatorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"convocatorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar convocatoria filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/convocatorias/list?idPrograma=2&tipoPractica=a&idCiclo=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"convocatorias",
+						"list"
+					],
+					"query": [
+						{
+							"key": "idPrograma",
+							"value": "2"
+						},
+						{
+							"key": "tipoPractica",
+							"value": "a"
+						},
+						{
+							"key": "idCiclo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar estado convocatoria",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/convocatorias/cerrar/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"convocatorias",
+						"cerrar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar convocatoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"id\": 2,\r\n      \"fecha_inicio\": \"2019-08-20\",\r\n      \"fecha_final\" : \"2019-08-20\",\r\n      \"id_empresa\": 2,\r\n      \"tipo_practica\": \"objetivo\",\r\n      \"id_facultad\": 2,\r\n      \"id_programa\": 2,\r\n      \"id_ciclo\": 2,\r\n      \"estado\": \"activo\",\r\n      \"numero_estudiantes\": 1,\r\n      \"id_coordinador\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/convocatorias/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"convocatorias",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar estudiante convocatoria ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/estudianteConvocatoria/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"estudianteConvocatoria",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar convocatorias cerradas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/convocatorias-ms/convocatorias/closedcalls?idPrograma=2&Estado=activo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"convocatorias-ms",
+						"convocatorias",
+						"closedcalls"
+					],
+					"query": [
+						{
+							"key": "idPrograma",
+							"value": "2"
+						},
+						{
+							"key": "Estado",
+							"value": "activo"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
