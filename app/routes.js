@@ -2,7 +2,7 @@ const express = require('express');
 const PersonController = require('./controllers/PersonController');
 const AnnouncementController = require('./controllers/AnnouncementController');
 const personAnnouncementController = require('./controllers/personAnnouncementController');
-
+const ClosingReasonController = require('./controllers/ClosingReasonController');
 
 const router = express.Router();
 
@@ -26,5 +26,8 @@ router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
 
 router.get('/estudianteConvocatoria/:id(\\d+)', personAnnouncementController.listAnnouncementStudent);
 router.get('/estudianteConvocatoria/:id(\\d+)', PersonController.find);
+
+// closing reason
+router.get('/closingReason/all', ClosingReasonController.listAll);
 
 module.exports = router;

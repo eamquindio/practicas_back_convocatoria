@@ -9,4 +9,5 @@ Helpers.clear = async () => {
   await db('persons').del();
   await db('convocatorias').del();
   await db('estudianteConvocatoria').del();
+  await db('closingReason').del();
 };
