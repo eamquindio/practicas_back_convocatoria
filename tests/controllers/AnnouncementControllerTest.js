@@ -74,6 +74,33 @@ describe('Announcement CRUD flows', () => {
       });
   });
 
+  it('signup Annoucement', async () =>{
+    await ConvocatoriaRepository.create([{
+      id: 2,
+      fecha_inicio: '2019-08-24 05:00:00',
+      fecha_final: '2019-08-24 05:00:00',
+      id_empresa: 2,
+      tipo_practica: 'objetivo',
+      id_facultad: 2,
+      id_programa: 2,
+      id_ciclo: 2,
+      estado: 'activo',
+      numero_estudiantes: 4,
+      id_coordinador: 2,
+    }]);
+
+    return chai
+      .request(app)
+      .post(`${API}/inscribirse`)
+      .send({
+        id_estudiante: 2,
+        id_convocatoria: 2
+      })
+      .catch((error) => {
+        assert.equal(error.status, 404);
+      });
+  });
+
   it('find Announcement by filter test', async () => {
     await ConvocatoriaRepository.create([{
       id: 1,
