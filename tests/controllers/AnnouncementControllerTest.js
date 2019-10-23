@@ -74,7 +74,7 @@ describe('Announcement CRUD flows', () => {
       });
   });
 
-  it('signup Annoucement', async () =>{
+  it('signup Annoucement', async () => {
     await ConvocatoriaRepository.create([{
       id: 2,
       fecha_inicio: '2019-08-24 05:00:00',
@@ -94,7 +94,7 @@ describe('Announcement CRUD flows', () => {
       .post(`${API}/inscribirse`)
       .send({
         id_estudiante: 2,
-        id_convocatoria: 2
+        id_convocatoria: 2,
       })
       .catch((error) => {
         assert.equal(error.status, 404);
