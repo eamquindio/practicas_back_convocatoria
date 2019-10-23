@@ -16,3 +16,6 @@ AnnouncementRepository.edit =
 
 AnnouncementRepository.closedCalls =
 (idPrograma, Estado) => DB('convocatorias').select('*').where({ id_programa: idPrograma, estado: Estado });
+
+AnnouncementRepository.singUpAnnoucement =
+studentAnnouncement => DB('estudianteConvocatoria').insert(studentAnnouncement).returning('*');

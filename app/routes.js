@@ -24,6 +24,8 @@ router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
 
 router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
 
+router.post('/convocatorias/inscibirse', AnnouncementController.singUpAnnoucement);
+
 router.get('/estudianteConvocatoria/:id(\\d+)', personAnnouncementController.listAnnouncementStudent);
 router.get('/estudianteConvocatoria/:id(\\d+)', PersonController.find);
 
