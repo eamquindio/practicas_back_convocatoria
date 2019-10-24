@@ -35,3 +35,13 @@ AnnouncementService.closedCalls = (idPrograma, Estado) => {
 
   return AnnouncementRepository.closedCalls(idPrograma, Estado);
 };
+
+AnnouncementService.singUpAnnoucement = async (studentAnnouncement) => {
+  console.log('creating studentAnnouncement');
+
+  const AnnouncemenToValidate = await AnnouncementRepository.find(studentAnnouncement.id_convocatoria);
+  console.log(AnnouncemenToValidate, studentAnnouncement);
+  if (!AnnouncemenToValidate) throw ErrorHandler.BaseError('Announcement not exists', 409);
+
+  return AnnouncementRepository.singUpAnnoucement(studentAnnouncement);
+};

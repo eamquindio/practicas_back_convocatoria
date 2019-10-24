@@ -15,7 +15,6 @@ AnnouncementController.save = async (req, res, next) => {
   }
 };
 
-
 AnnouncementController.findforfilter = async (req, res, next) => {
   try {
     const { query: { idPrograma, tipoPractica, idCiclo } } = req;
@@ -71,6 +70,19 @@ AnnouncementController.closedCalls = async (req, res, next) => {
     return res.send(AnnouncementS);
   } catch (error) {
     console.log(error);
+
+    return next(error);
+  }
+};
+
+AnnouncementController.singUpAnnoucement = async (req, res, next) => {
+  const { body } = req;
+  try {
+    await AnnouncementService.singUpAnnoucement(body);
+
+    return res.send();
+  } catch (error) {
+    console.log({ error });
 
     return next(error);
   }
