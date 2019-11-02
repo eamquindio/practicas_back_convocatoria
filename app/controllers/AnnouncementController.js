@@ -15,6 +15,21 @@ AnnouncementController.save = async (req, res, next) => {
   }
 };
 
+AnnouncementController.find = async (req, res, next) => {
+  try {
+    const { params: { id } } = req;
+    const announcement = await AnnouncementService.find(id);
+
+    if (!announcement) return next(new ErrorHandler.BaseError('convocatory not exists', 404));
+
+    return res.send(announcement);
+  } catch (error) {
+    console.log(error);
+
+    return next(error);
+  }
+};
+
 AnnouncementController.findforfilter = async (req, res, next) => {
   try {
     const { query: { idPrograma, tipoPractica, idCiclo } } = req;
