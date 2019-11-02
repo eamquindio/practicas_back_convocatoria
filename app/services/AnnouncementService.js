@@ -5,11 +5,17 @@ const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 AnnouncementService.create = async (Announcement) => {
   console.log('creating Announcement');
 
-  const AnnouncemenToValidate = await AnnouncementRepository.find(Announcement.id);
+  const AnnouncemenToValidate = await this.find(Announcement.id);
   console.log(AnnouncemenToValidate);
   if (AnnouncemenToValidate) throw ErrorHandler.BaseError('Announcement already exists', 409);
 
   return AnnouncementRepository.create(Announcement);
+};
+
+AnnouncementService.find = (announcement) => {
+  console.log('find Announcement');
+
+  return AnnouncementRepository.find(announcement);
 };
 
 AnnouncementService.edit = (id, Announcement) => {
