@@ -21,6 +21,7 @@ router.get('/Convocatorias/list', AnnouncementController.findforfilter);
 router.put('/convocatorias/cerrar/:id(\\d+)', AnnouncementController.editStatus);
 
 router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
+router.put('/convocatorias/:id(\\d+)', AnnouncementController.find);
 
 router.get('/convocatorias/closedcalls', AnnouncementController.closedCalls);
 
