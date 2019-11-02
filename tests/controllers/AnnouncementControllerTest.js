@@ -104,8 +104,8 @@ describe('Announcement CRUD flows', () => {
   it('find Annoucement test', async () => {
     await ConvocatoriaRepository.create({
       id: 1,
-      fecha_inicio: '2019-08-24 05:00:00',
-      fecha_final: '2019-08-24 05:00:00',
+      fecha_final: '2019-08-24T00:00:00.000Z',
+      fecha_inicio: '2019-08-24T00:00:00.000Z',
       id_empresa: 1,
       tipo_practica: 'horas',
       id_facultad: 1,
@@ -123,8 +123,8 @@ describe('Announcement CRUD flows', () => {
         const { body } = response;
         assert.deepEqual(body, {
           id: 1,
-          fecha_inicio: '2019-08-24 05:00:00',
-          fecha_final: '2019-08-24 05:00:00',
+          fecha_final: '2019-08-24T00:00:00.000Z',
+          fecha_inicio: '2019-08-24T00:00:00.000Z',
           id_empresa: 1,
           tipo_practica: 'horas',
           id_facultad: 1,
