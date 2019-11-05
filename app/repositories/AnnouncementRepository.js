@@ -19,3 +19,6 @@ AnnouncementRepository.closedCalls =
 
 AnnouncementRepository.singUpAnnoucement =
 studentAnnouncement => DB('estudianteConvocatoria').insert(studentAnnouncement).returning('*');
+
+AnnouncementRepository.listAll = () => DB('convocatorias').select('*');
+

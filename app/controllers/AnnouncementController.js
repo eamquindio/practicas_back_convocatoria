@@ -102,3 +102,16 @@ AnnouncementController.singUpAnnoucement = async (req, res, next) => {
     return next(error);
   }
 };
+
+AnnouncementController.listAll = async (req, res, next) => {
+  try {
+    const announcements = await AnnouncementService.listAll();
+    if (announcements.length === 0) return res.status(204).send(announcements);
+
+    return res.send(announcements);
+  } catch (error) {
+    console.log(error);
+
+    return next(error);
+  }
+};
