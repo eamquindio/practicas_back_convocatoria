@@ -51,3 +51,9 @@ AnnouncementService.singUpAnnoucement = async (studentAnnouncement) => {
 
   return AnnouncementRepository.singUpAnnoucement(studentAnnouncement);
 };
+
+AnnouncementService.listAll = () => {
+  console.log('find all annoucements');
+
+  return AnnouncementRepository.listAll();
+};
