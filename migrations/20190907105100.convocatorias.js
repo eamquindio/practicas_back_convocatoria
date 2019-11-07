@@ -4,6 +4,8 @@ exports.up = knex =>
     table.date('fecha_inicio');
     table.date('fecha_final');
     table.integer('id_empresa');
+    table.string('titulo');
+    table.string('observaciones');
     table.string('tipo_practica');
     table.integer('id_facultad');
     table.integer('id_programa');
