@@ -17,7 +17,8 @@ router.get('/persons/all', PersonController.listAll);
 // Announcement Routes
 router.post('/convocatorias', AnnouncementController.save);
 
-router.get('/Convocatorias/list', AnnouncementController.listAll);
+router.get('/Convocatorias/list', AnnouncementController.findforfilter);
+router.get('/convocatorias', AnnouncementController.listAll);
 router.put('/convocatorias/cerrar/:id(\\d+)', AnnouncementController.editStatus);
 
 router.put('/convocatorias/:id(\\d+)', AnnouncementController.edit);
