@@ -16,4 +16,3 @@ exports.up = knex =>
   });
 
 exports.down = knex => knex.schema.dropTable('convocatorias');
-

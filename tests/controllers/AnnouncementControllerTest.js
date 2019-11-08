@@ -25,6 +25,8 @@ describe('Announcement CRUD flows', () => {
       fecha_inicio: '2019-08-24',
       fecha_final: '2019-08-24',
       id_empresa: 1,
+      titulo: "juan",
+      observaciones: 'sad',
       tipo_practica: 'horas',
       id_facultad: 1,
       id_programa: 1,
