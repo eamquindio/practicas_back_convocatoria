@@ -4,6 +4,8 @@ exports.up = knex =>
     table.date('fecha_inicio');
     table.date('fecha_final');
     table.integer('id_empresa');
+    table.string('titulo');
+    table.string('observaciones');
     table.string('tipo_practica');
     table.integer('id_razon');
     table.integer('id_facultad');
@@ -15,4 +17,3 @@ exports.up = knex =>
   });
 
 exports.down = knex => knex.schema.dropTable('convocatorias');
-
