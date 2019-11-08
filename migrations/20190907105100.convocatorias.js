@@ -5,7 +5,7 @@ exports.up = knex =>
     table.date('fecha_final');
     table.integer('id_empresa');
     table.string('tipo_practica');
-    table.integer("id_razon");
+    table.integer('id_razon');
     table.integer('id_facultad');
     table.integer('id_programa');
     table.integer('id_ciclo');
