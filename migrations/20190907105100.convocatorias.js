@@ -14,7 +14,6 @@ exports.up = knex =>
     table.string('estado');
     table.integer('numero_estudiantes');
     table.integer('id_coordinador');
-    table.integer('test_column');
   });
 
 exports.down = knex => knex.schema.dropTable('convocatorias');
