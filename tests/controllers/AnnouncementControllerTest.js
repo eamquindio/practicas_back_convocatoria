@@ -383,7 +383,7 @@ describe('Announcement CRUD flows', () => {
   });
 
   it('find all closing reason', async () => {
-    await ClosingReasonRepository.createClosingReason([{
+    await ClosingReasonRepository.create([{
       id: 1,
       description: 'cumplió fecha limite',
     }, {
