@@ -9,6 +9,6 @@ ClosingReasonService.listAll = () => {
 
 ClosingReasonService.create = async (closing) => {
   console.log('creating closing');
-  
+
   return ClosingReasonRepository.create(closing);
 };
