@@ -1,6 +1,7 @@
 const AnnouncementService = module.exports;
 const AnnouncementRepository = require('../repositories/AnnouncementRepository');
 const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
+const ConvocatoryMSResource = require('../resources/ConvocatoryMSResource');
 
 AnnouncementService.create = async (Announcement) => {
   console.log('creating Announcement');
@@ -8,6 +9,8 @@ AnnouncementService.create = async (Announcement) => {
   const AnnouncemenToValidate = await AnnouncementRepository.find(Announcement.id);
   console.log(AnnouncemenToValidate);
   if (AnnouncemenToValidate) throw ErrorHandler.BaseError('Announcement already exists', 409);
+  const students = await ConvocatoryMSResource.listStudents();
+  await ConvocatoryMSResource.sendNotification(students);
 
   return AnnouncementRepository.create(Announcement);
 };
