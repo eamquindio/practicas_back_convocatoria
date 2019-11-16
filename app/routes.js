@@ -33,5 +33,6 @@ router.get('/estudianteConvocatoria/:id(\\d+)', PersonController.find);
 
 // closing reason
 router.get('/closingReason/all', ClosingReasonController.listAll);
+router.post('/closingReason', ClosingReasonController.save);
 
 module.exports = router;
