@@ -17,8 +17,8 @@ describe('Announcement CRUD flows', () => {
   before(() => Helper.migrate());
 
   beforeEach(async () => {
-    sandbox.stub(ConvocatoryMSResource, 'listStudents').returns({});
-    sandbox.stub(ConvocatoryMSResource, 'sendNotification').returns({});
+    sinon.stub(ConvocatoryMSResource, 'listStudents').returns({});
+    sinon.stub(ConvocatoryMSResource, 'sendNotification').returns({});
     await Helper.clear();
   });
   it('create Announcement test', () => chai
