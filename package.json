@@ -32,6 +32,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "run": "^1.4.0",
+    "sinon": "^7.5.0",
     "test": "^0.6.0"
   },
   "devDependencies": {
