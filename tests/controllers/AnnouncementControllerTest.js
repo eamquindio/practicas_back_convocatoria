@@ -5,11 +5,15 @@ const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
 const personAnnouncementRepository = require('../../app/repositories/personAnnouncementRepository');
 const ClosingReasonRepository = require('../../app/repositories/ClosingReasonRepository');
+const sinon = require('sinon').createSandbox();
+const ConvocatoryMSResource = require('../../app/resources/ConvocatoryMSResource');
 
 const Helper = require('../Helper');
 
 const API = '/api/convocatorias-ms/convocatorias';
 chai.use(chaiHttp);
+sinon.stub(ConvocatoryMSResource, 'listStudents').returns({});
+sinon.stub(ConvocatoryMSResource, 'sendNotification').returns({});
 
 describe('Announcement CRUD flows', () => {
   before(() => Helper.migrate());
