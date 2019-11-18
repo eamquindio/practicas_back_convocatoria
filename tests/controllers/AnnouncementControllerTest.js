@@ -12,13 +12,13 @@ const Helper = require('../Helper');
 
 const API = '/api/convocatorias-ms/convocatorias';
 chai.use(chaiHttp);
+sinon.stub(ConvocatoryMSResource, 'listStudents').returns({});
+sinon.stub(ConvocatoryMSResource, 'sendNotification').returns({});
 
 describe('Announcement CRUD flows', () => {
   before(() => Helper.migrate());
 
   beforeEach(async () => {
-    sinon.stub(ConvocatoryMSResource, 'listStudents').returns({});
-    sinon.stub(ConvocatoryMSResource, 'sendNotification').returns({});
     await Helper.clear();
   });
   it('create Announcement test', () => chai
