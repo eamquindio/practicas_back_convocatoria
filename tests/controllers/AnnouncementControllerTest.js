@@ -5,7 +5,7 @@ const app = require('../../index');
 const ConvocatoriaRepository = require('../../app/repositories/AnnouncementRepository');
 const personAnnouncementRepository = require('../../app/repositories/personAnnouncementRepository');
 const ClosingReasonRepository = require('../../app/repositories/ClosingReasonRepository');
-const sinon = require('sinon');
+const sinon = require('sinon').createSandbox();
 const ConvocatoryMSResource = require('../../app/resources/ConvocatoryMSResource');
 
 const Helper = require('../Helper');
@@ -17,10 +17,8 @@ describe('Announcement CRUD flows', () => {
   before(() => Helper.migrate());
 
   beforeEach(async () => {
-    const sandbox = sinon.createSandbox();
-    const sandbox2 = sinon.createSandbox();
     sandbox.stub(ConvocatoryMSResource, 'listStudents').returns({});
-    sandbox2.stub(ConvocatoryMSResource, 'sendNotification').returns({});
+    sandbox.stub(ConvocatoryMSResource, 'sendNotification').returns({});
     await Helper.clear();
   });
   it('create Announcement test', () => chai
