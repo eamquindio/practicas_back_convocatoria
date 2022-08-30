@@ -27,7 +27,7 @@
     "faker": "^4.1.0",
     "knex": "^0.19.5",
     "mock-knex": "^0.4.0",
-    "moment-timezone": "^0.5.23",
+    "moment-timezone": "^0.5.35",
     "pg": "^7.4.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
